@@ -2,7 +2,7 @@
 
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { BsHouse, BsPlusCircle } from "react-icons/bs";
+import { BsHouse, BsJournal, BsPlusCircle } from "react-icons/bs";
 
 export default function Navbar() {
     const session = useSession();
@@ -20,9 +20,14 @@ export default function Navbar() {
                 </li>
                 {
                     username === "admin" && (
-                        <li>
-                            <Link href="/admin/post/novo" className="hover:underline"><BsPlusCircle className="inline text-xl mr-1" /> Novo post</Link>
-                        </li>
+                        <>
+                            <li>
+                                <Link href="/admin/post/novo" className="hover:underline"><BsPlusCircle className="inline text-xl mr-1" /> Novo post</Link>
+                            </li>
+                            <li>
+                                <Link href="/admin/post/todos" className="hover:underline"><BsJournal className="inline text-xl mr-1" /> Todos os posts</Link>
+                            </li>
+                        </>
                     )
                 }
 
